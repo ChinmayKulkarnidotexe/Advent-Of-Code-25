@@ -12,29 +12,17 @@ public class Solution_2 {
                 String dir = line.substring(0, 1);
                 int move = Integer.parseInt(line.substring(1).trim());
                 
-                 if (dir.equals("L")) {
-                    for (int i = 0; i < move; i++) {
-                        currPos--;
-                        if (currPos < 0) {
-                            currPos = 99;
-                        }
-                        if (currPos == 0) {
-                            result++;
-                        }
+                if (dir.equals("L")) {
+                    if (currPos - move <= 0) {
+                        result += (-(currPos - move) / 100) + (currPos != 0 ? 1 : 0);
                     }
+                    currPos = ((currPos - move) % 100 + 100) % 100;
                 } else if (dir.equals("R")) {
-                    for (int i = 0; i < move; i++) {
-                        currPos++;
-                        if (currPos > 99) {
-                            currPos = 0;
-                        }
-                        if (currPos == 0) {
-                            result++;
-                        }
+                    if (currPos + move >= 100) {
+                        result += (currPos + move) / 100;
                     }
+                    currPos = (currPos + move) % 100;
                 }
-
-                currPos = currPos % 100;
 
             }
             
