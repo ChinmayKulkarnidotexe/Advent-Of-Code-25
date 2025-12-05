@@ -61,6 +61,6 @@ public class Solution_1 {
     }
 
     private static boolean isWithinBounds(int i, int j, int rows, int cols) {
-        return (i >= 0 && i < cols && j >= 0 && j < cols);
+        return (i >= 0 && i < rows && j >= 0 && j < cols);
     }
 }
